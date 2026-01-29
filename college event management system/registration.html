@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>College Event Registration</title>
+<link rel="stylesheet" href="CSS/registration.css">
+<style>
+    
+   
+  </style>
+</head>
+<body>
+       <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">
+                <div class="logo-text">CampusConnect</div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="calendar.html">Event Calendar</a></li>
+                <li><a href="details.html">Event Details</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="feedback.html">Feedback</a></li>
+            </ul>
+            <div class="auth-buttons">
+                <a href="registration.html"><button class="register-btn">Registration</button></a>
+            </div>
+            <div class="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header><br>
+    <br><br>
+  <div class="card">
+    <h1>Register for Event</h1>
+    <form id="regForm" action="#" method="POST">
+      <label for="name">Full Name</label>
+      <input type="text" id="name" name="name" placeholder="John Doe" required />
+
+      <label for="email">Email Address</label>
+      <input type="email" id="email" name="email" placeholder="john@example.com" required />
+
+      <label for="phone">Phone Number</label>
+      <input type="tel" id="phone" name="phone" placeholder="+123 456 7890" pattern="[+0-9\s]{7,15}" required />
+
+      <label for="event">Choose Event</label>
+      <select id="event" name="event" required>
+        <option value="" disabled selected>Select an event</option>
+        <option value="hackathon">Hackathon</option>
+        <option value="seminar">Seminar</option>
+        <option value="cultural">Cultural Fest</option>
+        <option value="sports">Sports Day</option>
+      </select>
+
+      <button type="submit">Submit</button>
+    </form>
+  </div><br>
+  <br>
+  <br>
+  
+
+    
+
+  <script>
+    const form = document.getElementById('regForm');
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      alert('Registration successful! Thank you for signing up.');
+      form.reset();
+    });
+  </script>
+</body>
+</html>

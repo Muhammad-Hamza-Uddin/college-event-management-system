@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CampusConnect | Your Event Management Partner</title>
+    <link rel="stylesheet" href="CSS/home.css">
+     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Cursive:wght@400..700&family=Lexend:wght@100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">
+                <div class="logo-text">CampusConnect</div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="calendar.html">Event Calendar</a></li>
+                <li><a href="details.html">Event Details</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="#">Contact Us</a></li>
+                <li><a href="feedback.html">Feedback</a></li>
+            </ul>
+            <div class="auth-buttons">
+                <a href="registration.html"><button class="register-btn">Registration</button></a>
+            </div>
+            <div class="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+  <!-- Navbar -->
+    <!-- <nav class="navbar sticky top-2 z-50" id="navbar" style="background-color: #fffaff; width: 90%; margin: 0 auto; border-radius: 20px; padding: 10px 0px 10px 0px;">
+        <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+            <div class="flex justify-between  h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/db2b2d12-192f-4a84-a58c-b0d0b05b8083.png" alt="EduSphere logo featuring a purple graduation cap with a globe inside representing global learning" class="h-8 w-auto">
+                        <span class="ml-2 text-3xl font-bold text-gray-900">EduSphere</span>
+                    </div>
+                </div>
+                <div class="hidden md:ml-6 md:flex md:items-center md:space-x-8">
+                    <a href="home.html" class="text-gray-900 hover:text-indigo-600 nav-link px-3 py-2 text-lg font-medium">Home</a>
+                    <a href="courses.html" class="text-gray-900 hover:text-indigo-600 nav-link px-3 py-2 text-lg font-medium">About</a>
+                    <a href="about.html" class="text-gray-900 hover:text-indigo-600 nav-link px-3 py-2 text-lg font-medium">Event Details</a>
+                    <a href="contact.html" class="text-gray-900 hover:text-indigo-600 nav-link px-3 py-2 text-lg font-medium">Event Calendar</a>
+                    <a href="knowledge.html" class="text-gray-900 hover:text-indigo-600 nav-link px-3 py-2 text-lg font-medium">Registration</a>
+                    <a href="knowledge.html" class="text-gray-900 hover:text-indigo-600 nav-link px-3 py-2 text-lg font-medium">Gallery</a>
+                </div>
+                <div class="flex items-center">
+                    <a href="#" class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-md text-sm font-medium transition duration-300">Sign In</a>
+                    <button class="md:hidden ml-4 inline-flex items-center justify-center p-2 rounded-md text-gray-900 hover:text-indigo-600 hover:bg-gray-100 focus:outline-none" id="menu-btn">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav> -->
+ 
+
+    <!-- Hero Section -->
+    <section class="hero" style="background: url('image/Lucid_Origin_A_wide_panoramic_view_of_a_modern_college_campus__2 (1).jpg');  background-size: cover; background-position: center; background-repeat: no-repeat;height: 100vh; display: flex;align-items: center;color: white;padding: 0 5%; margin-top: 80px; position: relative; overflow: hidden;">
+        <div class="hero-content">
+            <h1><span style="background: linear-gradient(90deg, #ae67fa, #f576e5); border-radius: 3px; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; font-style: italic;">Welcome</span> students, staff, and guests â€” your hub for all upcoming college events.</h1>
+            <p>Discover, organize, and participate in the best campus events. Your college experience just got better!</p>
+           <a href="details.html"> <button class="cta-btn">Explore Events</button></a>
+        </div>
+    </section>
+
+    <!-- Upcoming Events Section -->
+   
+   <section class="events-section">
+  <div class="section-title">
+    <h2>Upcoming Events</h2>
+    <p style="color: black;">Don't miss out on these exciting campus happenings</p>
+  </div>
+
+  <!-- Two rows -->
+  <div class="events-grid" id="events-row-1"></div>
+  <div class="events-grid" id="events-row-2"></div>
+</section>
+
+
+
+    <!-- Features Section -->
+    <section class="features-section">
+        <div class="section-title">
+            <h2 style="color: white;">Why Choose CampusConnect</h2>
+            <p>We make event management simple and effective</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">ðŸ“…</div>
+                <h3 class="feature-title">Easy Event Creation</h3>
+                <p class="feature-desc">Create and publish events in minutes with our intuitive event creation tools.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">ðŸ“±</div>
+                <h3 class="feature-title">Mobile Access</h3>
+                <p class="feature-desc">Access events and manage registrations from any device, anywhere on campus.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">ðŸ‘¥</div>
+                <h3 class="feature-title">Seamless Registration</h3>
+                <p class="feature-desc">Effortless registration process with automated confirmations and reminders.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2>Ready to Transform Your Campus Experience?</h2>
+            <p>Join thousands of students and organizations already using CampusEvents to manage their activities</p>
+            <button class="cta-btn">Get Started Now</button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>About CampusConnect</h3>
+                <p>A comprehensive platform designed to streamline event management for colleges and universities, making campus life more engaging and organized.</p>
+                <div class="social-links">
+                    <a href="#"><span>FB</span></a>
+                    <a href="#"><span>TW</span></a>
+                    <a href="#"><span>IG</span></a>
+                    <a href="#"><span>LI</span></a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Events Calendar</a></li>
+                    <li><a href="#">Create Event</a></li>
+                    <li><a href="#">My Events</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Contact Us</h3>
+                <p>Student Center Building, Room 205</p>
+                <p>campus.events@university.edu</p>
+                <p>(555) 123-4567</p>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 CampusConnect. All rights reserved.</p>
+        </div>
+    </footer>
+
+    
+    <script src="JS/script.js"></script>
+</body>
+</html>

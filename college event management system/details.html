@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduSphere - Event Details</title>
+    <link rel="stylesheet" href="CSS/details.css">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    
+</head>
+<body>
+       <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">
+                <div class="logo-text">CampusConnect</div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="calendar.html">Event Calendar</a></li>
+                <li><a href="details.html">Event Details</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="feedback.html">Feedback</a></li>
+            </ul>
+            <div class="auth-buttons">
+                <a href="registration.html"><button class="register-btn">Registration</button></a>
+            </div>
+            <div class="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+    <br>
+    <br><br>
+    <br>
+    
+
+    <!-- Event Details Section -->
+    <section class="py-5 gradient-bg">
+        <div class="container">
+            <div class="row g-4">
+                <!-- Event Main Info -->
+                <div class="col-lg-8">
+                    <div class="card shadow-lg">
+                        <div class="event-image-container">
+                            <img id="eventImage" src="image/Lucid_Origin_AI_Summit_2025_conference_with_a_futuristic_backd_3.jpg" alt="Event Image" class="event-image">
+                            <div class="category-badge">
+                                <span id="eventCategory" class="badge badge-custom">Technology</span>
+                            </div>
+                            <div class="favorite-position">
+                                <button id="favoriteBtn" class="favorite-btn">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="card-body p-4">
+                            <div class="row align-items-center mb-4">
+                                <div class="col">
+                                    <small id="eventDate" class="text-gray-600">December 15, 2024 • 9:00 AM - 5:00 PM</small>
+                                </div>
+                                <div class="col-auto">
+                                    <span id="attendeeCount" class="badge badge-attendees">47 Registered</span>
+                                </div>
+                            </div>
+                            
+                            <h1 id="eventTitle" class="h2 fw-bold mb-4">AI Summit 2025: Future of Artificial Intelligence</h1>
+                            
+                            <div class="row g-3 mb-4">
+                                <div class="col-md-4">
+                                    <div class="d-flex align-items-center">
+                                        <i class="fas fa-map-marker-alt text-indigo me-2"></i>
+                                        <span id="eventVenue" class="small">Convention Center, Main Hall</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="d-flex align-items-center">
+                                        <i class="far fa-calendar-alt text-indigo me-2"></i>
+                                        <span id="eventFullDate" class="small">Friday, December 15, 2024</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="d-flex align-items-center">
+                                        <i class="far fa-clock text-indigo me-2"></i>
+                                        <span id="eventTime" class="small">9:00 AM - 5:00 PM</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <h3 class="h5 fw-semibold mb-3">About This Event</h3>
+                                <p id="eventDescription" class="text-gray-600 lh-lg">Join us for a day-long conference exploring the latest advancements in artificial intelligence, machine learning, and deep learning technologies. This comprehensive event brings together industry leaders, researchers, and enthusiasts to discuss the future of AI and its impact on various industries.</p>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <h3 class="h5 fw-semibold mb-3">Featured Speakers</h3>
+                                <div id="speakersContainer">
+                                    <div class="d-flex align-items-center bg-gray-50 p-3 rounded">
+                                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/dr-sarah-johnson.jpg" alt="Dr. Sarah Johnson" class="rounded-circle me-3" width="64" height="64">
+                                        <div>
+                                            <h4 class="h6 fw-semibold mb-1">Dr. Sarah Johnson</h4>
+                                            <p class="small text-gray-600 mb-1">Senior AI Researcher at TechCorp</p>
+                                            <p class="small text-gray-500 mb-0">10+ years in AI research and development</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="row g-2">
+                                <div class="col-md-6">
+                                    <button id="registerBtn" class="btn btn-primary-custom btn-lg w-100">
+                                        Register Now - <span id="eventPrice">$99</span>
+                                    </button>
+                                </div>
+                                <div class="col-md-3">
+                                    <button id="addToCalendarBtn" class="btn btn-outline-primary-custom w-100">
+                                        <i class="far fa-calendar-plus me-1"></i>Add to Calendar
+                                    </button>
+                                </div>
+                                <div class="col-md-3">
+                                    <button id="shareBtn" class="btn btn-outline-secondary-custom w-100">
+                                        <i class="fas fa-share-alt me-1"></i>Share
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Sidebar with Agenda and Additional Info -->
+                <div class="col-lg-4">
+                    <div class="row g-4">
+                        <!-- Event Agenda -->
+                        <div class="col-12">
+                            <div class="card shadow">
+                                <div class="card-body">
+                                    <h3 class="h5 fw-semibold mb-4">Event Agenda</h3>
+                                    <div id="agendaContainer">
+                                        <div class="agenda-item border-left-indigo mb-3">
+                                            <div class="row">
+                                                <div class="col-3">
+                                                    <small class="fw-medium text-gray-500">9:00 AM</small>
+                                                </div>
+                                                <div class="col-9">
+                                                    <h6 class="fw-semibold mb-1">Opening Keynote</h6>
+                                                    <small class="text-gray-600">Welcome and introduction to AI trends</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="agenda-item border-left-blue mb-3">
+                                            <div class="row">
+                                                <div class="col-3">
+                                                    <small class="fw-medium text-gray-500">10:00 AM</small>
+                                                </div>
+                                                <div class="col-9">
+                                                    <h6 class="fw-semibold mb-1">Deep Learning Breakthroughs</h6>
+                                                    <small class="text-gray-600">Latest research and applications</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="agenda-item border-left-green mb-3">
+                                            <div class="row">
+                                                <div class="col-3">
+                                                    <small class="fw-medium text-gray-500">11:30 AM</small>
+                                                </div>
+                                                <div class="col-9">
+                                                    <h6 class="fw-semibold mb-1">Panel Discussion</h6>
+                                                    <small class="text-gray-600">Ethics and responsible AI development</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="agenda-item border-left-yellow mb-3">
+                                            <div class="row">
+                                                <div class="col-3">
+                                                    <small class="fw-medium text-gray-500">1:00 PM</small>
+                                                </div>
+                                                <div class="col-9">
+                                                    <h6 class="fw-semibold mb-1">Lunch Break</h6>
+                                                    <small class="text-gray-600">Networking opportunity</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="agenda-item border-left-purple mb-3">
+                                            <div class="row">
+                                                <div class="col-3">
+                                                    <small class="fw-medium text-gray-500">2:00 PM</small>
+                                                </div>
+                                                <div class="col-9">
+                                                    <h6 class="fw-semibold mb-1">Practical Applications</h6>
+                                                    <small class="text-gray-600">Case studies from industry leaders</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="agenda-item border-left-red">
+                                            <div class="row">
+                                                <div class="col-3">
+                                                    <small class="fw-medium text-gray-500">4:00 PM</small>
+                                                </div>
+                                                <div class="col-9">
+                                                    <h6 class="fw-semibold mb-1">Future Trends</h6>
+                                                    <small class="text-gray-600">Predictions and emerging technologies</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- What's Included -->
+                        <div class="col-12">
+                            <div class="card shadow">
+                                <div class="card-body">
+                                    <h3 class="h5 fw-semibold mb-3">What's Included</h3>
+                                    <ul class="list-unstyled">
+                                        <li class="d-flex align-items-center mb-2">
+                                            <i class="fas fa-check-circle text-success me-2"></i>
+                                            <span>Full day access to all sessions</span>
+                                        </li>
+                                        <li class="d-flex align-items-center mb-2">
+                                            <i class="fas fa-check-circle text-success me-2"></i>
+                                            <span>Lunch and refreshments</span>
+                                        </li>
+                                        <li class="d-flex align-items-center mb-2">
+                                            <i class="fas fa-check-circle text-success me-2"></i>
+                                            <span>Networking opportunities</span>
+                                        </li>
+                                        <li class="d-flex align-items-center mb-2">
+                                            <i class="fas fa-check-circle text-success me-2"></i>
+                                            <span>Digital resources and materials</span>
+                                        </li>
+                                        <li class="d-flex align-items-center">
+                                            <i class="fas fa-check-circle text-success me-2"></i>
+                                            <span>Certificate of attendance</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Quick Stats -->
+                        <div class="col-12">
+                            <div class="card shadow">
+                                <div class="card-body">
+                                    <h3 class="h5 fw-semibold mb-3">Event Stats</h3>
+                                    <div class="row text-center">
+                                        <div class="col-6 mb-3">
+                                            <div class="stats-number text-indigo">47</div>
+                                            <small class="text-gray-600">Registered</small>
+                                        </div>
+                                        <div class="col-6 mb-3">
+                                            <div class="stats-number text-success">150</div>
+                                            <small class="text-gray-600">Max Capacity</small>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="stats-number" style="color: #8b5cf6;">8</div>
+                                            <small class="text-gray-600">Hours</small>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="stats-number" style="color: #f59e0b;">5</div>
+                                            <small class="text-gray-600">Sessions</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Related Events Section -->
+    <section class="py-5 bg-gray-50">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="h1 fw-bold mb-3">Related Events</h2>
+                <p class="text-gray-600">Check out these other exciting events happening soon</p>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card event-card shadow-sm">
+                        <div class="position-relative">
+                            <img src="image/Lucid_Origin_Web_Development_ConferenceDEVELOPMENTDecember_16__0.jpg" alt="Web Development Conference" class="card-img-top related-event-image">
+                            <div class="position-absolute top-0 start-0 m-3">
+                                <span class="badge bg-primary">DEVELOPMENT</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="d-flex align-items-center mb-2">
+                                <i class="far fa-calendar-alt text-gray-500 me-2"></i>
+                                <small class="text-gray-600">December 16, 2024 • 10:00 AM - 4:00 PM</small>
+                            </div>
+                            <h5 class="card-title">Web Development Conference 2024</h5>
+                            <p class="card-text text-gray-600">Explore the latest frontend and backend technologies with hands-on workshops and expert talks.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="text-indigo fw-bold">$79</span>
+                                <a href="#" class="text-indigo text-decoration-none small fw-medium">View Details →</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="card event-card shadow-sm">
+                        <div class="position-relative">
+                            <img src="image/Lucid_Origin_Data_Science_WorkshopWORKSHOPDecember_5_2024__900_3.jpg" alt="Data Science Workshop" class="card-img-top related-event-image">
+                            <div class="position-absolute top-0 start-0 m-3">
+                                <span class="badge bg-success">WORKSHOP</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="d-flex align-items-center mb-2">
+                                <i class="far fa-calendar-alt text-gray-500 me-2"></i>
+                                <small class="text-gray-600">December 5, 2024 • 9:00 AM - 5:00 PM</small>
+                            </div>
+                            <h5 class="card-title">Data Science Workshop</h5>
+                            <p class="card-text text-gray-600">Hands-on training with real datasets, learn Python, machine learning algorithms, and data visualization techniques.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="text-indigo fw-bold">$119</span>
+                                <a href="#" class="text-indigo text-decoration-none small fw-medium">View Details →</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="card event-card shadow-sm">
+                        <div class="position-relative">
+                            <img src="image/Lucid_Origin_A_modern_digital_poster_advertising_the_UXUI_Desi_2.jpg" alt="UX/UI Design Summit" class="card-img-top related-event-image">
+                            <div class="position-absolute top-0 start-0 m-3">
+                                <span class="badge" style="background-color: #ec4899;">DESIGN</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="d-flex align-items-center mb-2">
+                                <i class="far fa-calendar-alt text-gray-500 me-2"></i>
+                                <small class="text-gray-600">January 15, 2025 • 9:00 AM - 5:00 PM</small>
+                            </div>
+                            <h5 class="card-title">UX/UI Design Summit</h5>
+                            <p class="card-text text-gray-600">Creative solutions for modern interfaces</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="text-indigo fw-bold">$89</span>
+                                <a href="#" class="text-indigo text-decoration-none small fw-medium">View Details →</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Registration Modal -->
+    <div id="registrationModal" class="modal">
+        <div class="modal-backdrop-custom"></div>
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body text-center p-4">
+                    <div class="mb-4">
+                        <div class="d-inline-flex align-items-center justify-content-center registration-success rounded-circle mb-3" style="width: 64px; height: 64px;">
+                            <i class="fas fa-check text-white fs-3"></i>
+                        </div>
+                        <h3 class="fw-bold mb-2">Registration Successful!</h3>
+                        <p class="text-gray-600">You've been registered for this event. Check your email for confirmation details.</p>
+                    </div>
+                    <div class="mb-4">
+                        <div class="row">
+                            <div class="col">
+                                <small class="text-gray-600">Registration ID:</small>
+                            </div>
+                            <div class="col-auto">
+                                <small class="fw-semibold" id="registrationId">#EDU2024-001</small>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <small class="text-gray-600">Total Amount:</small>
+                            </div>
+                            <div class="col-auto">
+                                <small class="fw-semibold text-success">$99</small>
+                            </div>
+                        </div>
+                    </div>
+                    <button id="closeModal" class="btn btn-primary-custom w-100">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+      <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>About CampusConnect</h3>
+                <p>A comprehensive platform designed to streamline event management for colleges and universities, making campus life more engaging and organized.</p>
+                <div class="social-links">
+                    <a href="#"><span>FB</span></a>
+                    <a href="#"><span>TW</span></a>
+                    <a href="#"><span>IG</span></a>
+                    <a href="#"><span>LI</span></a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Events Calendar</a></li>
+                    <li><a href="#">Create Event</a></li>
+                    <li><a href="#">My Events</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Contact Us</h3>
+                <p>Student Center Building, Room 205</p>
+                <p>campus.events@university.edu</p>
+                <p>(555) 123-4567</p>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 CampusConnect. All rights reserved.</p>
+        </div>
+    </footer>
+
+    
+
+    <!-- Bootstrap JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Interactive functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Favorite button toggle
+            const favoriteBtn = document.getElementById('favoriteBtn');
+            favoriteBtn.addEventListener('click', function() {
+                const icon = this.querySelector('i');
+                if (icon.classList.contains('far')) {
+                    icon.classList.remove('far');
+                    icon.classList.add('fas');
+                    this.classList.add('text-danger');
+                } else {
+                    icon.classList.remove('fas');
+                    icon.classList.add('far');
+                    this.classList.remove('text-danger');
+                }
+            });
+
+            // Registration button
+            const registerBtn = document.getElementById('registerBtn');
+            const modal = document.getElementById('registrationModal');
+            const closeModal = document.getElementById('closeModal');
+
+            registerBtn.addEventListener('click', function() {
+                // Generate random registration ID
+                const regId = '#EDU2024-' + Math.floor(Math.random() * 1000).toString().padStart(3, '0');
+                document.getElementById('registrationId').textContent = regId;
+                
+                // Show modal
+                modal.classList.add('show');
+                
+                // Update attendee count
+                const attendeeCount = document.getElementById('attendeeCount');
+                const currentCount = parseInt(attendeeCount.textContent.match(/\d+/)[0]);
+                attendeeCount.textContent = `${currentCount + 1} Registered`;
+            });
+
+            closeModal.addEventListener('click', function() {
+                modal.classList.remove('show');
+            });
+
+            // Close modal when clicking backdrop
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal || e.target.classList.contains('modal-backdrop-custom')) {
+                    modal.classList.remove('show');
+                }
+            });
+
+            // Add to calendar button
+            document.getElementById('addToCalendarBtn').addEventListener('click', function() {
+                // Create a simple calendar event
+                const eventDetails = {
+                    title: document.getElementById('eventTitle').textContent,
+                    date: '2024-12-15',
+                    time: '09:00-17:00',
+                    location: document.getElementById('eventVenue').textContent
+                };
+                
+                alert(`Event added to calendar:\n\n${eventDetails.title}\nDate: ${eventDetails.date}\nTime: ${eventDetails.time}\nLocation: ${eventDetails.location}`);
+            });
+
+            // Share button
+            document.getElementById('shareBtn').addEventListener('click', function() {
+                if (navigator.share) {
+                    navigator.share({
+                        title: document.getElementById('eventTitle').textContent,
+                        text: document.getElementById('eventDescription').textContent,
+                        url: window.location.href
+                    });
+                } else {
+                    // Fallback for browsers that don't support Web Share API
+                    const url = window.location.href;
+                    navigator.clipboard.writeText(url).then(() => {
+                        alert('Event link copied to clipboard!');
+                    }).catch(() => {
+                        alert('Unable to copy link. Please copy manually: ' + url);
+                    });
+                }
+            });
+
+            // Smooth scrolling for agenda items
+            document.querySelectorAll('.agenda-item').forEach(item => {
+                item.addEventListener('click', function() {
+                    this.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                });
+            });
+        });
+    </script>
+</body>
+</html>

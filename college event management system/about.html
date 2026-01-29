@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | CampusConnect</title>
+    <link rel="stylesheet" href="CSS/home.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Cursive:wght@400..700&family=Lexend:wght@100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <style>
+        .about-hero {
+            background: linear-gradient(rgba(174, 103, 250, 0.8), rgba(245, 118, 229, 0.8)), url('image/Lucid_Origin_A_wide_panoramic_view_of_a_modern_college_campus__2 (1).jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            margin-top: 80px;
+        }
+
+        .story-section {
+            padding: 80px 5%;
+            background: white;
+        }
+
+        .story-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .story-text {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        .story-text h3 {
+            color: #ae67fa;
+            font-size: 24px;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .story-image {
+            background: linear-gradient(135deg, #ae67fa, #f576e5);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            color: white;
+        }
+
+        .values-section {
+            padding: 80px 5%;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .value-card {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .value-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .value-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #ae67fa, #f576e5);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .value-title {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .value-desc {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .team-section {
+            padding: 80px 5%;
+            background: white;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .team-card {
+            background: #f8f9ff;
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .team-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(174, 103, 250, 0.2);
+        }
+
+        .team-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ae67fa, #f576e5);
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 48px;
+            font-weight: bold;
+        }
+
+        .team-name {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .team-role {
+            color: #ae67fa;
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+
+        .team-desc {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .mission-section {
+            padding: 80px 5%;
+            background: linear-gradient(135deg, #ae67fa, #f576e5);
+            color: white;
+            text-align: center;
+        }
+
+        .mission-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .mission-content h2 {
+            font-size: 42px;
+            margin-bottom: 30px;
+            font-weight: 700;
+        }
+
+        .mission-content p {
+            font-size: 20px;
+            line-height: 1.8;
+            margin-bottom: 40px;
+        }
+
+        .stats-section {
+            padding: 80px 5%;
+            background: #1a1a2e;
+            color: white;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 48px;
+            font-weight: 700;
+            color: #f576e5;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-size: 16px;
+            color: #ccc;
+        }
+
+        .timeline-section {
+            padding: 80px 5%;
+            background: white;
+        }
+
+        .timeline {
+            max-width: 800px;
+            margin: 50px auto 0;
+            position: relative;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(135deg, #ae67fa, #f576e5);
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 50px;
+            width: 50%;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 50%;
+            padding-left: 40px;
+        }
+
+        .timeline-item:nth-child(odd) {
+            padding-right: 40px;
+        }
+
+        .timeline-content {
+            background: #f8f9ff;
+            padding: 30px;
+            border-radius: 15px;
+            position: relative;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .timeline-date {
+            color: #ae67fa;
+            font-weight: 600;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .timeline-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .timeline-desc {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            background: linear-gradient(135deg, #ae67fa, #f576e5);
+            border-radius: 50%;
+            top: 30px;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-dot {
+            right: -8px;
+        }
+
+        .timeline-item:nth-child(even) .timeline-dot {
+            left: -8px;
+        }
+
+        @media (max-width: 768px) {
+            .story-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .timeline::before {
+                left: 20px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                left: 0 !important;
+                padding-left: 50px !important;
+                padding-right: 0 !important;
+            }
+
+            .timeline-dot {
+                left: 12px !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">
+                <div class="logo-text">CampusConnect</div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="about.html" class="active">About Us</a></li>
+                <li><a href="calendar.html">Event Calendar</a></li>
+                <li><a href="details.html">Event Details</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="feedback.html">Feedback</a></li>
+            </ul>
+            <div class="auth-buttons">
+                <a href="registration.html"><button class="register-btn">Registration</button></a>
+            </div>
+            <div class="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="about-hero">
+        <div class="hero-content">
+            <h1><span style="background: linear-gradient(90deg, #ae67fa, #f576e5); border-radius: 3px; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; font-style: italic;">About</span> CampusConnect</h1>
+            <p>Connecting students, events, and experiences to build vibrant campus communities</p>
+        </div>
+    </section>
+
+    <!-- Our Story Section -->
+    <section class="story-section">
+        <div class="section-title">
+            <h2 style="color: #333;">Our Story</h2>
+            <p style="color: #666;">How we started and where we're heading</p>
+        </div>
+        
+        <div class="story-container">
+            <div class="story-text">
+                <h3>From Idea to Reality</h3>
+                <p>CampusConnect was born from a simple observation: college students were missing out on amazing campus events simply because they didn't know they existed. Our founders, a group of computer science students, experienced this firsthand when they discovered they had missed several networking events, cultural festivals, and academic workshops.</p>
+                
+                <p>What started as a small project to help their own university has grown into a comprehensive platform serving thousands of students across multiple institutions. We believe that every student deserves to have access to the full spectrum of their campus experience.</p>
+                
+                <p>Today, CampusConnect is more than just an event platform – we're building communities, fostering connections, and helping students make the most of their college years.</p>
+            </div>
+            
+            <div class="story-image">
+                <div style="font-size: 80px; margin-bottom: 20px;">🎓</div>
+                <h3>Empowering Campus Life</h3>
+                <p>Making every student's college experience memorable and meaningful</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission Section -->
+    <section class="mission-section">
+        <div class="mission-content">
+            <h2>Our Mission</h2>
+            <p>To revolutionize campus life by creating seamless connections between students and the events that shape their college experience. We believe that engaged students build stronger communities, and stronger communities create better educational environments for everyone.</p>
+            <div style="display: flex; justify-content: center; gap: 40px; margin-top: 40px;">
+                <div style="text-align: center;">
+                    <div style="font-size: 36px; margin-bottom: 10px;">🎯</div>
+                    <h4>Focus</h4>
+                </div>
+                <div style="text-align: center;">
+                    <div style="font-size: 36px; margin-bottom: 10px;">🤝</div>
+                    <h4>Connect</h4>
+                </div>
+                <div style="text-align: center;">
+                    <div style="font-size: 36px; margin-bottom: 10px;">🚀</div>
+                    <h4>Grow</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="values-section">
+        <div class="section-title">
+            <h2 style="color: #333;">Our Values</h2>
+            <p style="color: #666;">The principles that guide everything we do</p>
+        </div>
+        
+        <div class="values-grid">
+            <div class="value-card">
+                <div class="value-icon">🎓</div>
+                <div class="value-title">Student-Centric</div>
+                <div class="value-desc">Every decision we make prioritizes the student experience. We listen, adapt, and innovate based on what students actually need and want.</div>
+            </div>
+            
+            <div class="value-card">
+                <div class="value-icon">🌍</div>
+                <div class="value-title">Inclusive Community</div>
+                <div class="value-desc">We believe every student deserves to feel welcome and included. Our platform celebrates diversity and creates spaces for all voices to be heard.</div>
+            </div>
+            
+            <div class="value-card">
+                <div class="value-icon">💡</div>
+                <div class="value-title">Innovation</div>
+                <div class="value-desc">We continuously evolve our platform using the latest technology to create intuitive, powerful tools that make campus life better.</div>
+            </div>
+            
+            <div class="value-card">
+                <div class="value-icon">🤝</div>
+                <div class="value-title">Collaboration</div>
+                <div class="value-desc">We partner with student organizations, faculty, and administration to create comprehensive solutions that benefit the entire campus ecosystem.</div>
+            </div>
+            
+            <div class="value-card">
+                <div class="value-icon">🔒</div>
+                <div class="value-title">Trust & Security</div>
+                <div class="value-desc">Student privacy and data security are paramount. We maintain the highest standards to protect our community's information and trust.</div>
+            </div>
+            
+            <div class="value-card">
+                <div class="value-icon">📈</div>
+                <div class="value-title">Impact</div>
+                <div class="value-desc">We measure our success by the positive impact we have on student engagement, community building, and overall campus life satisfaction.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="section-title">
+            <h2>Our Impact in Numbers</h2>
+            <p>See how we're making a difference across campuses</p>
+        </div>
+        
+        <div class="stats-grid">
+            <div class="stat-item">
+                <div class="stat-number">50+</div>
+                <div class="stat-label">Partner Universities</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">25K+</div>
+                <div class="stat-label">Active Students</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">5,000+</div>
+                <div class="stat-label">Events Hosted</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">98%</div>
+                <div class="stat-label">User Satisfaction</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">150K+</div>
+                <div class="stat-label">Event Registrations</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">24/7</div>
+                <div class="stat-label">Platform Availability</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team-section">
+        <div class="section-title">
+            <h2 style="color: #333;">Meet Our Team</h2>
+            <p style="color: #666;">The passionate individuals behind CampusConnect</p>
+        </div>
+        
+        <div class="team-grid">
+            <div class="team-card">
+                <div class="team-avatar">AS</div>
+                <div class="team-name">Alex Smith</div>
+                <div class="team-role">CEO & Co-Founder</div>
+                <div class="team-desc">Computer Science graduate with a passion for building communities. Previously led tech initiatives at three major universities.</div>
+            </div>
+            
+            <div class="team-card">
+                <div class="team-avatar">MJ</div>
+                <div class="team-name">Maria Johnson</div>
+                <div class="team-role">CTO & Co-Founder</div>
+                <div class="team-desc">Full-stack developer and UX enthusiast. Specializes in creating intuitive platforms that users actually love to use.</div>
+            </div>
+            
+            <div class="team-card">
+                <div class="team-avatar">DL</div>
+                <div class="team-name">David Lee</div>
+                <div class="team-role">Head of Product</div>
+                <div class="team-desc">Former student activities coordinator turned product manager. Brings deep understanding of student needs and campus dynamics.</div>
+            </div>
+            
+            <div class="team-card">
+                <div class="team-avatar">SP</div>
+                <div class="team-name">Sarah Parker</div>
+                <div class="team-role">Community Manager</div>
+                <div class="team-desc">Communications specialist focused on building meaningful connections between students, organizations, and events.</div>
+            </div>
+            
+            <div class="team-card">
+                <div class="team-avatar">RT</div>
+                <div class="team-name">Ryan Thompson</div>
+                <div class="team-role">Lead Developer</div>
+                <div class="team-desc">Backend architecture expert ensuring our platform scales securely as we grow to serve more universities worldwide.</div>
+            </div>
+            
+            <div class="team-card">
+                <div class="team-avatar">EW</div>
+                <div class="team-name">Emma Wilson</div>
+                <div class="team-role">Partnership Director</div>
+                <div class="team-desc">Relationship builder connecting CampusConnect with universities and student organizations across the globe.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section class="timeline-section">
+        <div class="section-title">
+            <h2 style="color: #333;">Our Journey</h2>
+            <p style="color: #666;">Key milestones in our growth story</p>
+        </div>
+        
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-date">January 2023</div>
+                    <div class="timeline-title">The Beginning</div>
+                    <div class="timeline-desc">Three computer science students launch CampusConnect as a small project to solve event discovery problems at their university.</div>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-date">June 2023</div>
+                    <div class="timeline-title">First 1,000 Users</div>
+                    <div class="timeline-desc">Reached our first major milestone with 1,000 active users and partnerships with 5 student organizations.</div>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-date">September 2023</div>
+                    <div class="timeline-title">Multi-Campus Launch</div>
+                    <div class="timeline-desc">Expanded to 5 additional universities, proving our platform works across diverse campus environments.</div>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-date">March 2024</div>
+                    <div class="timeline-title">Major Platform Update</div>
+                    <div class="timeline-desc">Launched mobile app and advanced features including personalized recommendations and social integration.</div>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-date">September 2024</div>
+                    <div class="timeline-title">National Recognition</div>
+                    <div class="timeline-desc">Won "Best Student Technology Platform" award and partnered with 25+ universities nationwide.</div>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-date">Present</div>
+                    <div class="timeline-title">Growing Strong</div>
+                    <div class="timeline-desc">Serving 25,000+ students across 50+ universities with plans for international expansion in 2025.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2>Ready to Join Our Community?</h2>
+            <p>Be part of the movement that's transforming campus life one event at a time</p>
+            <button class="cta-btn" onclick="location.href='registration.html'">Get Started Today</button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>About CampusConnect</h3>
+                <p>A comprehensive platform designed to streamline event management for colleges and universities, making campus life more engaging and organized.</p>
+                <div class="social-links">
+                    <a href="#"><span>FB</span></a>
+                    <a href="#"><span>TW</span></a>
+                    <a href="#"><span>IG</span></a>
+                    <a href="#"><span>LI</span></a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Events Calendar</a></li>
+                    <li><a href="#">Create Event</a></li>
+                    <li><a href="#">My Events</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Contact Us</h3>
+                <p>Student Center Building, Room 205</p>
+                <p>campus.events@university.edu</p>
+                <p>(555) 123-4567</p>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 CampusConnect. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Menu toggle functionality
+        document.querySelector('.menu-toggle')?.addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+
+        // Animate stats on scroll
+        function animateStats() {
+            const statNumbers = document.querySelectorAll('.stat-number');
+            statNumbers.forEach(stat => {
+                const target = parseInt(stat.textContent);
+                let current = 0;
+                const increment = target / 50;
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        stat.textContent = stat.textContent;
+                        clearInterval(timer);
+                    } else {
+                        stat.textContent = Math.floor(current) + (stat.textContent.includes('+') ? '+' : '') + (stat.textContent.includes('%') ? '%' : '');
+                    }
+                }, 30);
+            });
+        }
+
+        // Intersection Observer for stats animation
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateStats();
+                    observer.unobserve(entry.target);
+                }
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const statsSection = document.querySelector('.stats-section');
+            if (statsSection) {
+                observer.observe(statsSection);
+            }
+        });
+    </script>
+</body>
+</html>

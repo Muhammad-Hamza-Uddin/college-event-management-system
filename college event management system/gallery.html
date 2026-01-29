@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Gallery | CampusConnect</title>
+    <link rel="stylesheet" href="CSS/home.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Cursive:wght@400..700&family=Lexend:wght@100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Cursive:wght@400..700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .gallery-hero {
+            background: linear-gradient(90deg, #ae67fa, #f576e5);
+            border-radius: 20px;
+            margin: 20px;
+            padding: 80px 0;
+            color: white;
+            text-align: center;
+            margin-top: 100px;
+        }
+
+        .filter-btn {
+            background: white;
+            color: #ae67fa;
+            border: 2px solid #ae67fa;
+            padding: 12px 24px;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            font-family: 'Poppins', sans-serif;
+            margin: 5px;
+        }
+
+        .filter-btn.active,
+        .filter-btn:hover {
+            background: linear-gradient(135deg, #ae67fa, #f576e5);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(174, 103, 250, 0.3);
+        }
+
+        .gallery-item {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(174, 103, 250, 0.2);
+        }
+
+        .gallery-image img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 15px;
+        }
+
+        .gallery-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .gallery-description {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+
+        .gallery-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            color: #ae67fa;
+            font-weight: 500;
+        }
+
+        .stats-section {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 80px 0;
+        }
+
+        .stat-number {
+            font-size: 36px;
+            font-weight: 700;
+            color: #ae67fa;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            color: #666;
+            font-weight: 500;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 600px;
+            width: 90%;
+            position: relative;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 30px;
+            color: #666;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .modal-close:hover {
+            color: #ae67fa;
+        }
+
+        .modal img {
+            width: 100%;
+            border-radius: 15px;
+            margin-bottom: 20px;
+        }
+
+        .gallery-container {
+            padding: 60px 20px;
+        }
+
+        .filter-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 50px;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .filter-tabs {
+                gap: 10px;
+            }
+            
+            .filter-btn {
+                padding: 8px 16px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">
+                <div class="logo-text">CampusConnect</div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="calendar.html">Event Calendar</a></li>
+                <li><a href="details.html">Event Details</a></li>
+                <li><a href="gallery.html" class="active">Gallery</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="feedback.html">Feedback</a></li>
+            </ul>
+            <div class="auth-buttons">
+                <a href="registration.html"><button class="register-btn">Registration</button></a>
+            </div>
+            <div class="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Overlay -->
+    <div id="overlay" class="fixed inset-0 bg-black bg-opacity-40 hidden z-30"></div>
+
+    <!-- Gallery Hero Section -->
+    <section class="gallery-hero">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h1 class="text-3xl md:text-5xl font-bold mb-6"><span style="background: rgba(255,255,255,0.2); padding: 5px 10px; border-radius: 5px;">Event</span> Gallery</h1>
+            <p class="text-lg mb-8 max-w-3xl text-gray-100 mx-auto">Explore our collection of memorable campus events, conferences, workshops, and celebrations. Each event tells a unique story of connection, learning, and success.</p>
+        </div>
+    </section>
+
+    <!-- Filter Tabs -->
+    <div class="gallery-container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="filter-tabs">
+            <button class="filter-btn active" data-filter="all">All Events</button>
+            <button class="filter-btn" data-filter="academic">Academic</button>
+            <button class="filter-btn" data-filter="cultural">Cultural</button>
+            <button class="filter-btn" data-filter="sports">Sports</button>
+            <button class="filter-btn" data-filter="workshop">Workshops</button>
+            <button class="filter-btn" data-filter="social">Social</button>
+            <button class="filter-btn" data-filter="esports">E-Sports</button>
+            <button class="filter-btn" data-filter="leadership">Leadership</button>
+        </div>
+
+        <!-- Gallery Grid -->
+        <div class="gallery-grid" id="galleryGrid">
+            <!-- Gallery items will be generated by JavaScript -->
+        </div>
+    </div>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Gallery Statistics</h2>
+                <p class="text-gray-600">Numbers that showcase our vibrant campus community</p>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div class="stat-item">
+                    <div class="stat-number">200+</div>
+                    <div class="stat-label">Events Captured</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">15K+</div>
+                    <div class="stat-label">Happy Students</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">Campus Venues</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">5★</div>
+                    <div class="stat-label">Average Rating</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal -->
+    <div class="modal" id="eventModal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeModal()">&times;</span>
+            <div id="modalContent">
+                <!-- Modal content will be populated by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>About CampusConnect</h3>
+                <p>A comprehensive platform designed to streamline event management for colleges and universities, making campus life more engaging and organized.</p>
+                <div class="social-links">
+                    <a href="#"><span>FB</span></a>
+                    <a href="#"><span>TW</span></a>
+                    <a href="#"><span>IG</span></a>
+                    <a href="#"><span>LI</span></a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Events Calendar</a></li>
+                    <li><a href="#">Create Event</a></li>
+                    <li><a href="#">My Events</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Contact Us</h3>
+                <p>Student Center Building, Room 205</p>
+                <p>campus.events@university.edu</p>
+                <p>(555) 123-4567</p>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 CampusConnect. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        const events = [
+            { 
+                id: 1, 
+                title: "Tech Innovation Summit 2024", 
+                description: "A groundbreaking conference featuring industry leaders discussing the future of technology and campus innovation.", 
+                category: "academic", 
+                date: "March 15, 2024", 
+                attendees: "800", 
+                image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=400&h=300&fit=crop"
+            },
+            { 
+                id: 2, 
+                title: "Campus E-Sports Tournament", 
+                description: "E-sports showdown where student gamers compete, legends are made, and victory awaits the champions.", 
+                category: "esports", 
+                date: "April 20, 2024", 
+                attendees: "150", 
+                image: "https://images.unsplash.com/photo-1542751371-adc38448a05e?w=400&h=300&fit=crop"
+            },
+            { 
+                id: 3, 
+                title: "Student Leadership Retreat", 
+                description: "Leadership development and team building session for student organization leaders and campus ambassadors.", 
+                category: "leadership", 
+                date: "May 8, 2024", 
+                attendees: "75", 
+                image: "https://images.unsplash.com/photo-1517048676732-d65bc937f952?w=400&h=300&fit=crop"
+            },
+            { 
+                id: 4, 
+                title: "Digital Marketing Workshop", 
+                description: "Hands-on learning experience for modern marketing strategies and social media tools for student organizations.", 
+                category: "workshop", 
+                date: "June 12, 2024", 
+                attendees: "120", 
+                image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=300&fit=crop"
+            },
+            { 
+                id: 5, 
+                title: "Spring Campus Festival", 
+                description: "Annual spring celebration featuring live music, food trucks, games, and activities for the entire campus community.", 
+                category: "social", 
+                date: "May 24, 2024", 
+                attendees: "2000", 
+                image: "https://images.unsplash.com/photo-1429962714451-bb934ecdc4ec?w=400&h=300&fit=crop"
+            },
+            { 
+                id: 6, 
+                title: "AI & Machine Learning Conference", 
+                description: "Student research presentations and expert discussions on artificial intelligence applications in education.", 
+                category: "academic", 
+                date: "August 18, 2024", 
+                attendees: "300", 
+                image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=400&h=300&fit=crop"
+            },
+            { 
+                id: 7, 
+                title: "Cultural Heritage Night", 
+                description: "A celebration of diversity featuring performances, food, and traditions from international student organizations.", 
+                category: "cultural", 
+                date: "September 5, 2024", 
+                attendees: "500", 
+                image: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=400&h=300&fit=crop"
+            },
+            { 
+                id: 8, 
+                title: "Career Fair & Networking", 
+                description: "Annual career fair connecting students with potential employers and internship opportunities.", 
+                category: "academic", 
+                date: "October 10, 2024", 
+                attendees: "1200", 
+                image: "https://images.unsplash.com/photo-1515187029135-18ee286d815b?w=400&h=300&fit=crop"
+            },
+            { 
+                id: 9, 
+                title: "Photography Workshop", 
+                description: "Learn advanced photography techniques from professional photographers and student media teams.", 
+                category: "workshop", 
+                date: "November 14, 2024", 
+                attendees: "60", 
+                image: "https://images.unsplash.com/photo-1502920917128-1aa500764cbd?w=400&h=300&fit=crop"
+            },
+            { 
+                id: 10, 
+                title: "Intramural Championship", 
+                description: "Annual sports tournament featuring competitions between dormitories and student organizations.", 
+                category: "sports", 
+                date: "March 22, 2024", 
+                attendees: "400", 
+                image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=300&fit=crop"
+            },
+            { 
+                id: 11, 
+                title: "Art Exhibition Opening", 
+                description: "Student artwork showcase featuring paintings, sculptures, and digital art from talented campus artists.", 
+                category: "cultural", 
+                date: "February 8, 2024", 
+                attendees: "200", 
+                image: "https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=400&h=300&fit=crop"
+            },
+            { 
+                id: 12, 
+                title: "Coding Bootcamp", 
+                description: "Intensive weekend workshop covering web development, mobile apps, and programming fundamentals.", 
+                category: "workshop", 
+                date: "January 20, 2024", 
+                attendees: "80", 
+                image: "https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?w=400&h=300&fit=crop"
+            }
+        ];
+
+        // Function to render gallery items
+        function renderGallery(filteredEvents = events) {
+            const galleryGrid = document.getElementById('galleryGrid');
+            galleryGrid.innerHTML = '';
+
+            filteredEvents.forEach((event, index) => {
+                const galleryItem = document.createElement('div');
+                galleryItem.className = 'gallery-item';
+                galleryItem.setAttribute('data-category', event.category);
+                galleryItem.onclick = () => openModal(event);
+                galleryItem.style.opacity = '0';
+                galleryItem.style.transform = 'translateY(30px)';
+                galleryItem.style.transition = 'all 0.6s ease';
+
+                galleryItem.innerHTML = `
+                    <div class="p-6">
+                        <div class="gallery-image mb-4">
+                            <img src="${event.image}" alt="${event.title}" loading="lazy">
+                        </div>
+                        <div class="gallery-content">
+                            <h3 class="gallery-title">${event.title}</h3>
+                            <p class="gallery-description">${event.description}</p>
+                            <div class="gallery-meta">
+                                <span class="event-date">📅 ${event.date}</span>
+                                <span class="event-attendees">👥 ${event.attendees}</span>
+                            </div>
+                        </div>
+                    </div>
+                `;
+
+                galleryGrid.appendChild(galleryItem);
+
+                // Animate in
+                setTimeout(() => {
+                    galleryItem.style.opacity = '1';
+                    galleryItem.style.transform = 'translateY(0)';
+                }, index * 100);
+            });
+        }
+
+        function filterEvents(category) {
+            if (category === 'all') {
+                renderGallery(events);
+            } else {
+                const filteredEvents = events.filter(event => event.category.toLowerCase() === category.toLowerCase());
+                renderGallery(filteredEvents);
+            }
+        }
+
+        function openModal(event) {
+            const modal = document.getElementById('eventModal');
+            const modalContent = document.getElementById('modalContent');
+            modalContent.innerHTML = `
+                <div style="text-align: center;">
+                    <img src="${event.image}" alt="${event.title}" />
+                    <h2 style="color: #333; margin: 20px 0; font-size: 28px; font-weight: 700;">${event.title}</h2>
+                    <p style="color: #666; line-height: 1.6; margin-bottom: 30px; font-size: 16px;">${event.description}</p>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; text-align: left;">
+                        <div style="background: #f8f9ff; padding: 20px; border-radius: 15px;">
+                            <strong style="color: #ae67fa;">Date:</strong><br>
+                            <span style="color: #333;">${event.date}</span>
+                        </div>
+                        <div style="background: #f8f9ff; padding: 20px; border-radius: 15px;">
+                            <strong style="color: #ae67fa;">Attendees:</strong><br>
+                            <span style="color: #333;">${event.attendees} people</span>
+                        </div>
+                    </div>
+                </div>
+            `;
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('eventModal');
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    filterEvents(this.getAttribute('data-filter'));
+                });
+            });
+
+            // Close modal when clicking outside
+            window.addEventListener('click', function(event) {
+                const modal = document.getElementById('eventModal');
+                if (event.target === modal) {
+                    closeModal();
+                }
+            });
+
+            // Close modal with ESC key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    closeModal();
+                }
+            });
+
+            // Menu toggle functionality
+            document.querySelector('.menu-toggle')?.addEventListener('click', function() {
+                document.querySelector('.nav-links').classList.toggle('active');
+            });
+
+            // Initial render
+            renderGallery();
+        });
+    </script>
+</body>
+</html>

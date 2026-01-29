@@ -1,0 +1,40 @@
+{
+  "events": [
+    {
+      "title": "TechFest 2025",
+      "date": "July 20, 2025",
+      "desc": "Join the biggest annual tech festival featuring coding, robotics, and AI competitions.",
+      "img": "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+    },
+    {
+      "title": "Cultural Week Begins",
+      "date": "August 5, 2025",
+      "desc": "Celebrate traditions, food, and performances from diverse cultures.",
+      "img": "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+    },
+    {
+      "title": "Career Fair 2025",
+      "date": "September 12, 2025",
+      "desc": "Meet top employers and explore internship and job opportunities.",
+      "img": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+    },
+    {
+      "title": "Spring Music Concert",
+      "date": "October 10, 2025",
+      "desc": "Enjoy live performances by student musicians and guest artists.",
+      "img": "https://images.unsplash.com/photo-1507874457470-272b3c8d8ee2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+    },
+    {
+      "title": "Art & Design Exhibition",
+      "date": "November 2, 2025",
+      "desc": "Explore paintings, sculptures, and digital artworks by creative students.",
+      "img": "https://images.unsplash.com/photo-1529101091764-c3526daf38fe?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+    },
+    {
+      "title": "Entrepreneurship Summit",
+      "date": "December 1, 2025",
+      "desc": "Learn from startup founders and industry leaders about business growth and innovation.",
+      "img": "https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+    }
+  ]
+}

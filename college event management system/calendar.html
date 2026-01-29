@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduSphere - Event Calendar</title>
+    <link rel="stylesheet" href="CSS/calendar.css">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    
+    
+</head>
+<body>
+       <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">
+                <div class="logo-text">CampusConnect</div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="calendar.html">Event Calendar</a></li>
+                <li><a href="details.html">Event Details</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="feedback.html">Feedback</a></li>
+            </ul>
+            <div class="auth-buttons">
+                <a href="registration.html"><button class="register-btn">Registration</button></a>
+            </div>
+            <div class="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+    <br>
+    <br><br>
+    
+
+    <!-- Calendar Header -->
+    <section class="py-5 gradient-bg text-dark">
+        <div class="container">
+            <div class="text-center mb-4">
+                <h1 class="display-4 fw-bold mb-3">Event Calendar</h1>
+                <p class="fs-5">Stay updated with upcoming educational events</p>
+            </div>
+            
+            <!-- Month Navigation -->
+            <div class="d-flex justify-content-center align-items-center mb-4">
+                <button id="prevMonth" class="month-nav-btn me-3">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <h2 id="currentMonth" class="h3 fw-semibold mx-3">December 2024</h2>
+                <button id="nextMonth" class="month-nav-btn ms-3">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Calendar Grid -->
+    <section class="py-5 bg-gray-50">
+        <div class="container">
+            <div class="card shadow-lg">
+                <!-- Calendar Header -->
+                <div class="calendar-header">
+                    <div class="calendar-header-cell">Sun</div>
+                    <div class="calendar-header-cell">Mon</div>
+                    <div class="calendar-header-cell">Tue</div>
+                    <div class="calendar-header-cell">Wed</div>
+                    <div class="calendar-header-cell">Thu</div>
+                    <div class="calendar-header-cell">Fri</div>
+                    <div class="calendar-header-cell">Sat</div>
+                </div>
+                <!-- Calendar Days -->
+                <div id="calendarGrid" class="calendar-grid border-top">
+                    <!-- Calendar will be generated here -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Event Listing Section -->
+    <section class="py-5 bg-white">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="h1 fw-bold mb-3">Event Catalog</h2>
+                <p class="text-gray-600">Browse all our educational events with advanced filtering and sorting options</p>
+            </div>
+
+            <!-- Filters and Controls -->
+            <div class="filter-container mb-4">
+                <div class="row">
+                    <div class="col-lg-8 mb-3 mb-lg-0">
+                        <div class="d-flex flex-wrap align-items-center">
+                            <span class="small fw-medium text-gray-600 me-3 mb-2">Filter by Category:</span>
+                            <button class="filter-btn active" data-category="all">All Events</button>
+                            <button class="filter-btn" data-category="academic">Academic</button>
+                            <button class="filter-btn" data-category="cultural">Cultural</button>
+                            <button class="filter-btn" data-category="sports">Sports</button>
+                            <button class="filter-btn" data-category="departmental">Departmental</button>
+                        </div>
+                    </div>
+
+                    <!-- Sort Options -->
+                    <div class="col-lg-4">
+                        <div class="d-flex align-items-center">
+                            <span class="small fw-medium text-gray-600 me-2">Sort by:</span>
+                            <select id="sortSelect" class="form-select form-select-sm">
+                                <option value="date-asc">Date (Upcoming First)</option>
+                                <option value="date-desc">Date (Recent First)</option>
+                                <option value="name-asc">Name (A-Z)</option>
+                                <option value="name-desc">Name (Z-A)</option>
+                                <option value="category">Category</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Event Cards Container -->
+            <div id="eventContainer" class="row g-4">
+                <!-- Events will be loaded here dynamically -->
+            </div>
+
+            <!-- No Events Message -->
+            <div id="noEventsMessage" class="text-center py-5 d-none">
+                <i class="fas fa-calendar-times display-1 text-gray-300 mb-3"></i>
+                <h3 class="h4 fw-semibold text-gray-500 mb-2">No Events Found</h3>
+                <p class="text-gray-400">Try adjusting your filters to see more events</p>
+            </div>
+        </div>
+    </section>
+
+      <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>About CampusConnect</h3>
+                <p>A comprehensive platform designed to streamline event management for colleges and universities, making campus life more engaging and organized.</p>
+                <div class="social-links">
+                    <a href="#"><span>FB</span></a>
+                    <a href="#"><span>TW</span></a>
+                    <a href="#"><span>IG</span></a>
+                    <a href="#"><span>LI</span></a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Events Calendar</a></li>
+                    <li><a href="#">Create Event</a></li>
+                    <li><a href="#">My Events</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Contact Us</h3>
+                <p>Student Center Building, Room 205</p>
+                <p>campus.events@university.edu</p>
+                <p>(555) 123-4567</p>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 CampusConnect. All rights reserved.</p>
+        </div>
+    </footer>
+
+    
+    <!-- Bootstrap JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // Sample events data
+        const eventsData = [
+            {
+                id: 1,
+                name: "AI Summit 2024: Future of Artificial Intelligence",
+                date: "2024-12-15",
+                time: "09:00 - 17:00",
+                venue: "Convention Center, Main Hall",
+                category: "academic",
+                description: "Join us for a day-long conference exploring the latest advancements in artificial intelligence, machine learning, and deep learning technologies. Learn from industry experts and researchers about the future of AI.",
+                price: 99,
+                speaker: "Dr. Sarah Johnson",
+                image: "image/Lucid_Origin_AI_Summit_2025_conference_with_a_futuristic_backd_3.jpg",
+                status: "upcoming"
+            },
+            {
+                id: 2,
+                name: "Web Development Conference 2024",
+                date: "2024-12-16",
+                time: "10:00 - 16:00",
+                venue: "Tech Hub Auditorium",
+                category: "academic",
+                description: "Explore the latest frontend and backend technologies with hands-on workshops and expert talks. Perfect for developers of all skill levels.",
+                price: 79,
+                speaker: "Team of Experts",
+                image: "image/Lucid_Origin_Web_Development_ConferenceDEVELOPMENTDecember_16__0.jpg",
+                status: "upcoming"
+            },
+            {
+                id: 3,
+                name: "Data Science Workshop",
+                date: "2024-12-05",
+                time: "09:00 - 17:00",
+                venue: "Lab 302, Science Building",
+                category: "academic",
+                description: "Hands-on training with real datasets. Learn Python, machine learning algorithms, and data visualization techniques from scratch.",
+                price: 119,
+                speaker: "Prof. Michael Chen",
+                image: "image/Lucid_Origin_Data_Science_WorkshopWORKSHOPDecember_5_2024__900_3.jpg",
+                status: "past"
+            },
+            {
+                id: 4,
+                name: "Annual Cultural Festival",
+                date: "2025-01-20",
+                time: "18:00 - 22:00",
+                venue: "Campus Grounds",
+                category: "cultural",
+                description: "Celebrate diversity through music, dance, and art. A vibrant evening showcasing talents from our multicultural community.",
+                price: 25,
+                speaker: "Various Artists",
+                image: "image/Lucid_Origin_A_vibrant_evening_scene_of_the_Annual_Cultural_Fe_1.jpg",
+                status: "upcoming"
+            },
+            {
+                id: 5,
+                name: "Inter-University Basketball Championship",
+                date: "2025-02-10",
+                time: "14:00 - 18:00",
+                venue: "Sports Complex",
+                category: "sports",
+                description: "Watch the best university teams compete in this thrilling basketball championship. Support your home team!",
+                price: 15,
+                speaker: "Sports Committee",
+                image: "image/Lucid_Origin_A_vibrant_and_dynamic_scene_of_a_crowded_basketba_1.jpg",
+                status: "upcoming"
+            },
+            {
+                id: 6,
+                name: "Computer Science Department Open House",
+                date: "2025-01-15",
+                time: "10:00 - 15:00",
+                venue: "CS Building",
+                category: "departmental",
+                description: "Explore our cutting-edge labs, meet faculty members, and learn about research opportunities. Perfect for prospective students.",
+                price: 0,
+                speaker: "CS Department Faculty",
+                image: "image/Lucid_Origin_A_vibrant_and_modern_Computer_Science_Department__1.jpg",
+                status: "upcoming"
+            },
+            {
+                id: 7,
+                name: "UX/UI Design Summit",
+                date: "2025-01-15",
+                time: "09:00 - 17:00",
+                venue: "Design Studio",
+                category: "academic",
+                description: "Creative solutions for modern interfaces. Learn the latest design trends and user experience principles.",
+                price: 89,
+                speaker: "Design Team",
+                image: "image/Lucid_Origin_A_modern_conference_scene_with_a_large_screen_dis_1.jpg",
+                status: "upcoming"
+            },
+            {
+                id: 8,
+                name: "Annual Marathon",
+                date: "2025-03-05",
+                time: "06:00 - 12:00",
+                venue: "City Center",
+                category: "sports",
+                description: "Join hundreds of participants in our annual marathon. Multiple distance categories available for all fitness levels.",
+                price: 30,
+                speaker: "Athletics Club",
+                image: "image/Generated Image September 11, 2025 - 8_47PM.png",
+                status: "upcoming"
+            }
+        ];
+
+        let filteredEvents = [...eventsData];
+        let currentCategory = 'all';
+        let currentSort = 'date-asc';
+
+        // Calendar functionality
+        let currentDate = new Date(2024, 11, 1); // December 2024
+
+        function generateCalendar() {
+            const calendarGrid = document.getElementById('calendarGrid');
+            const monthElement = document.getElementById('currentMonth');
+            
+            const year = currentDate.getFullYear();
+            const month = currentDate.getMonth();
+            
+            monthElement.textContent = new Date(year, month).toLocaleDateString('en-US', { 
+                month: 'long', 
+                year: 'numeric' 
+            });
+
+            const firstDay = new Date(year, month, 1);
+            const lastDay = new Date(year, month + 1, 0);
+            const daysInMonth = lastDay.getDate();
+            const startingDay = firstDay.getDay();
+
+            let html = '';
+            
+            // Empty cells for days before month starts
+            for (let i = 0; i < startingDay; i++) {
+                html += '<div class="calendar-day"></div>';
+            }
+            
+            // Days of the month
+            for (let day = 1; day <= daysInMonth; day++) {
+                const dateStr = `${year}-${String(month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+                const dayEvents = eventsData.filter(event => event.date === dateStr);
+                
+                html += `
+                    <div class="calendar-day">
+                        <div class="small fw-medium text-gray-500">${day}</div>
+                        ${dayEvents.map(event => `
+                            <div class="position-absolute bottom-0 start-0 end-0 p-1">
+                                <div class="d-flex align-items-center ${getCategoryTextColor(event.category)}" style="font-size: 0.75rem;">
+                                    <span class="event-dot event-dot-${event.category}"></span>
+                                    <span class="text-truncate" style="max-width: 80px;">${event.name.length > 15 ? event.name.substring(0, 15) + '...' : event.name}</span>
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
+                `;
+            }
+            
+            calendarGrid.innerHTML = html;
+        }
+
+        function getCategoryTextColor(category) {
+            const colors = {
+                academic: 'text-purple-600',
+                cultural: 'text-pink-600',
+                sports: 'text-green-600',
+                departmental: 'text-blue-600'
+            };
+            return colors[category] || 'text-gray-600';
+        }
+
+        function getCategoryBadgeClass(category) {
+            const badges = {
+                academic: 'category-academic',
+                cultural: 'category-cultural',
+                sports: 'category-sports',
+                departmental: 'category-departmental'
+            };
+            return badges[category] || 'bg-secondary';
+        }
+
+        function formatDate(dateStr) {
+            const date = new Date(dateStr);
+            return date.toLocaleDateString('en-US', { 
+                day: 'numeric',
+                month: 'short',
+                year: 'numeric'
+            });
+        }
+
+        function renderEvents() {
+            const container = document.getElementById('eventContainer');
+            const noEventsMessage = document.getElementById('noEventsMessage');
+
+            if (filteredEvents.length === 0) {
+                container.classList.add('d-none');
+                noEventsMessage.classList.remove('d-none');
+                return;
+            }
+
+            container.classList.remove('d-none');
+            noEventsMessage.classList.add('d-none');
+
+            const eventsHtml = filteredEvents.map(event => `
+                <div class="col-md-6 col-lg-4">
+                    <div class="card event-card h-100">
+                        <div class="position-relative">
+                            <img src="${event.image}" alt="${event.name}" class="card-img-top related-event-image">
+                            <div class="position-absolute top-0 start-0 m-3">
+                                <span class="badge ${getCategoryBadgeClass(event.category)}">
+                                    ${event.category.toUpperCase()}
+                                </span>
+                            </div>
+                            ${event.status === 'past' ? 
+                                '<div class="position-absolute top-0 end-0 m-3"><span class="badge bg-secondary">PAST</span></div>' : 
+                                ''
+                            }
+                        </div>
+                        <div class="card-body d-flex flex-column">
+                            <div class="d-flex align-items-center mb-2 small text-gray-600">
+                                <i class="far fa-calendar-alt me-2"></i>
+                                <span>${formatDate(event.date)} • ${event.time}</span>
+                            </div>
+                            <div class="d-flex align-items-center mb-2 small text-gray-600">
+                                <i class="fas fa-map-marker-alt me-2"></i>
+                                <span>${event.venue}</span>
+                            </div>
+                            <h5 class="card-title">${event.name}</h5>
+                            <p class="card-text text-gray-600 small flex-grow-1">${event.description}</p>
+                            <div class="d-flex align-items-center mb-3 small text-gray-600">
+                                <i class="fas fa-user me-2"></i>
+                                <span>${event.speaker}</span>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center mt-auto">
+                                <span class="text-indigo fw-bold fs-5">
+                                    ${event.price === 0 ? 'FREE' : `$${event.price}`}
+                                </span>
+                                <a href="event-details.html" class="text-indigo text-decoration-none small fw-medium">
+                                    View Details →
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+
+            container.innerHTML = eventsHtml;
+        }
+
+        function filterEvents(category) {
+            currentCategory = category;
+            if (category === 'all') {
+                filteredEvents = [...eventsData];
+            } else {
+                filteredEvents = eventsData.filter(event => event.category === category);
+            }
+            sortEvents(currentSort);
+        }
+
+        function sortEvents(sortBy) {
+            currentSort = sortBy;
+            
+            switch (sortBy) {
+                case 'date-asc':
+                    filteredEvents.sort((a, b) => new Date(a.date) - new Date(b.date));
+                    break;
+                case 'date-desc':
+                    filteredEvents.sort((a, b) => new Date(b.date) - new Date(a.date));
+                    break;
+                case 'name-asc':
+                    filteredEvents.sort((a, b) => a.name.localeCompare(b.name));
+                    break;
+                case 'name-desc':
+                    filteredEvents.sort((a, b) => b.name.localeCompare(a.name));
+                    break;
+                case 'category':
+                    filteredEvents.sort((a, b) => a.category.localeCompare(b.category));
+                    break;
+            }
+            
+            renderEvents();
+        }
+
+        // Event listeners
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize calendar
+            generateCalendar();
+            
+            // Initialize events
+            filterEvents('all');
+
+            // Calendar navigation
+            document.getElementById('prevMonth').addEventListener('click', function() {
+                currentDate.setMonth(currentDate.getMonth() - 1);
+                generateCalendar();
+            });
+
+            document.getElementById('nextMonth').addEventListener('click', function() {
+                currentDate.setMonth(currentDate.getMonth() + 1);
+                generateCalendar();
+            });
+
+            // Filter buttons
+            document.querySelectorAll('.filter-btn').forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+                    
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    // Filter events
+                    const category = this.getAttribute('data-category');
+                    filterEvents(category);
+                });
+            });
+
+            // Sort dropdown
+            document.getElementById('sortSelect').addEventListener('change', function() {
+                sortEvents(this.value);
+            });
+        });
+    </script>
+</body>
+</html>
